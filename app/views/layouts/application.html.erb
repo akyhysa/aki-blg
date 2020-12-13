@@ -6,11 +6,103 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
+    <!-- navigation -->
+    <nav class="nav">
+      <div class="nav-menu flex-row">
+        <div class="nav-brand">
+          <a href="#" class="text-gray">Blog</a>
+        </div>
+        <div class="toggle-collapse">
+          <div class="toggle-icons">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+        <div>
+          <ul class="nav-items">
+            <li class="nav-link">
+              <a href="#">Home</a>
+            </li>
+            <li class="nav-link">
+              <a href="#">Category</a>
+            </li>
+            <li class="nav-link">
+              <a href="#">Archive</a>
+            </li>
+            <li class="nav-link">
+              <a href="#">Pages</a>
+            </li>
+            <li class="nav-link">
+              <a href="#">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+        <div class="social text-gray">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a> 
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </nav>
+  <!-- end navigation -->
+
     <%= render 'layouts/messages' %>
     <%= yield %>
+
+  <!-- Footer -->
+
+    <footer class="footer">
+      <div class="container">
+        <div class="about-us" data-aos="fade-right" data-aos-delay="200">
+          <h2>About us</h2>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+        </div>
+        <div class="newsletter" data-aos="fade-right" data-aos-delay="200">
+          <h2>Newsletter</h2>
+          <p>Stay update with our latest</p>
+          <div class="form-element">
+            <input type="text" placeholder="Email"><span><i class="fas fa-chevron-right"></i></span>
+          </div>
+        </div>
+        <div class="instagram" data-aos="fade-left" data-aos-delay="200">
+          <h2>Instagram</h2>
+          <div class="flex-row">
+            <img src="/assets/thumb-card3.png" alt="insta1">
+            <img src="/assets/thumb-card4.png" alt="insta2">
+            <img src="/assets/thumb-card5.png" alt="insta3">
+          </div>
+          <div class="flex-row">
+            <img src="/assets/thumb-card6.png" alt="insta4">
+            <img src="/assets/thumb-card7.png" alt="insta5">
+            <img src="/assets/thumb-card8.png" alt="insta6">
+          </div>
+        </div>
+        <div class="follow" data-aos="fade-right" data-aos-delay="200">
+          <h2>Follow us</h2>
+          <p>Let us be Social</p>
+          <div>
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-youtube"></i>
+          </div>
+        </div>
+      </div>
+      <div class="rights flex-row">
+        <h4 class="text-gray">
+          Copyright ©︎2020 All rights reserved made by Aki BLG
+          <a href="www.youtube.com" target="_black"> <i class="fab fa-youtube"></i>Channel</a>
+        </h4>
+      </div>
+      <div class="move-up">
+        <span><i class="fas fa-arrow-circle-up fa-2x"></i></span>
+      </div>
+    </footer>
+
+  <!-- XX Footer -->
   </body>
 </html>
