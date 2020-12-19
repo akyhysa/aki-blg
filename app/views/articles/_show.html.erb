@@ -11,7 +11,7 @@
                     <%= image_tag article.image.url, class:"img", alt:"blog1" %>
                   </div>
                   <div class="post-info flex-row">
-                    <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;Admin</span>
+                    <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;<%= article.user.username if article.user %></span>
                     <span><i class="fas fa-calender-alt text-gray"></i>&nbsp;&nbsp;<%= time_ago_in_words(article.created_at) %> ago,</span>
                     <span>2 Comments</span>
                   </div>
