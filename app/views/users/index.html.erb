@@ -1,0 +1,36 @@
+<h1></h1>
+
+<div>
+  <div class="login">
+    <div class="login-triangle"></div>
+    <h1 class="login-header">Alpha Bloggers</h1>
+    <div class="login-container">
+      <div class="img-profile">
+        <div>
+          <% @users.each do |user| %>
+            <div>
+              <h1><%= link_to user.username, user %></h1>
+            </div>
+            <div>
+              <h5>
+                <%= link_to gravatar_for(user, size: 150), user %>
+              </h5>
+            <div>
+              <h2>
+                <p><%= pluralize(user.articles.count, "article") %></p>
+                <%= link_to "View profile", user %>
+                <%= link_to "Edit profile", edit_user_path(user) %>
+              </h2>
+            </div>
+            <div>
+              <h2>Joined <%= time_ago_in_words(user.created_at) %> ago</h2>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,17 +1,17 @@
 <div class="login">
   <div class="login-triangle"></div>
   <h2 class="login-header">Sign up for AKI Blog</h2>
-  <form class="login-container">
-  <%= render 'shared/errors', obj: @user %>
-  <%= form_with(model: @user, local: true) do |f| %>
-    <p><%= f.label :username, 'Username' %></p>
-    <p><%= f.text_field :username, placeholder: "Enter a username" %></p>
-    <p><%= f.label :email %></p>
-    <p><%= f.email_field :email, placeholder: "Enter your email address" %></p>
-    <p><%= f.label :password %></p>
-    <p><%= f.password_field :password, placeholder: "Choose a password" %></p>
-    <p><%= f.submit  %></p>
-    <p><%= link_to '[ Cancel and return to articles listing ]', articles_path %><p>
-  <% end %>
-  </form>
+  <div class="login-container">
+    <%= render 'shared/errors', obj: @user %>
+    <%= form_with(model: @user, local: true) do |f| %>
+      <p><%= f.label :username, 'Username' %><p>
+      <p><%= f.text_field :username, placeholder: "Enter a username" %><p>
+      <p><%= f.label :email %><p>
+      <p><%= f.email_field :email, placeholder: "Enter your email address" %><p>
+      <p><%= f.label :password %><p>
+      <p><%= f.password_field :password, placeholder: "Choose a password" %><p>
+      <p><%= f.submit  %><p>
+      <p><%= link_to '[ Cancel and return to articles listing ]', articles_path %><p>
+    <% end %>
+  </div>
 </div>

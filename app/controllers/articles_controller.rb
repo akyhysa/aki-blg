@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def show
-    # @articles = Article.all
+    @articles = Article.paginate(page: params[:page], per_page: 5)
     @random = Article.order("RAND()").limit(6)
   end
 

@@ -1,0 +1,12 @@
+<div>
+  <div class="login">
+    <div class="login-triangle"></div>
+    <h1 class="login-header"><%= @user.username %>'s profile</h1>
+    <div class="login-container">
+      <div class="img-profile">
+        <%= gravatar_for @user, size: 200 %>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render 'articles/article' %>
