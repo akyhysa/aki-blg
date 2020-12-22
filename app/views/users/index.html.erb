@@ -9,21 +9,24 @@
         <div>
           <% @users.each do |user| %>
             <div>
-              <h1><%= link_to user.username, user %></h1>
-            </div>
-            <div>
-              <h5>
-                <%= link_to gravatar_for(user, size: 150), user %>
-              </h5>
-            <div>
-              <h2>
-                <p><%= pluralize(user.articles.count, "article") %></p>
-                <%= link_to "View profile", user %>
-                <%= link_to "Edit profile", edit_user_path(user) %>
-              </h2>
-            </div>
-            <div>
-              <h2>Joined <%= time_ago_in_words(user.created_at) %> ago</h2>
+              <div>
+                <div>
+                  <div>
+                    <h1><%= link_to user.username, user %></h1>
+                  </div>
+                  <div>
+                    <h5>
+                      <%= link_to gravatar_for(user, size: 150), user %>
+                    </h5>
+                    <p><%= pluralize(user.articles.count, "article") %></p>
+                    <%= link_to "View profile", user %>
+                    <%= link_to "Edit profile", edit_user_path(user) %>
+                  </div>
+                  <div>
+                    <small>Joined <%= time_ago_in_words(user.created_at) %> ago</small>
+                  </div>
+                </div>
+              </div>
             </div>
           <% end %>
         </div>

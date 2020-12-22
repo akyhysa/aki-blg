@@ -32,18 +32,24 @@
             <li class="nav-link">
               <a><%= link_to "View articles", articles_path %></a>
             </li>
-            <li class="nav-link">
-              <a href="#">Pages</a>
-            </li>
-            <li class="nav-link">
-              <a href="#">Contact Us</a>
-            </li>
+
+            <% if logged_in? %>
+              <li class="nav-link">
+                <h2><%= link_to current_user.username, user_path(current_user)%></h2>
+              </li>
+              <li class="nav-link">
+                <a><%= link_to 'Logout', logout_path, method: :delete %></a>
+              </li>
+            <% else %>
+              <li class="nav-link">
+                <a><%= link_to 'Log in', login_path %></a>
+              </li>
+              <li class="nav-link">
+                <a><%= link_to 'Sign up', signup_path %></a>
+              </li>
+            <% end %>
           </ul>
         </div>
-        
-
-
-
         <div class="social text-gray">
           <a href="#"><i class="fab fa-facebook-f"></i></a>
           <a href="#"><i class="fab fa-instagram"></i></a>
@@ -52,10 +58,8 @@
         </div>
       </div>
     </nav>
-
     
   <!-- end navigation -->
-
     <%= render 'layouts/messages' %>
     <%= yield %>
 

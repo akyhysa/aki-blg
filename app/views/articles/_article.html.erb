@@ -2,8 +2,115 @@
   <div class="title-name">
     <h1>Listing all articles</h1>
   </div>
-  <%= render 'articles/show' %>
+  <main>
+  <!-- Site Content -->
+    <section class="container">
+      <div class="site-content">
+        <div class="posts">
+          <%= will_paginate @articles, previous_label: '<', next_label: '>', inner_window: 1 %>
+            <% @articles.each do |article| %>
+              <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
+                <div class="post-image">
+                  <div>
+                    <%= image_tag article.image.url, class:"img", alt:"blog1" %>
+                  </div>
+                  <div class="post-info flex-row">
+                    <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;
+                      <% if article.user %>
+                        by <%= link_to article.user.username, user_path(article.user) %>
+                      <% end %>
+                    </span>
+                    <span><i class="fas fa-calender-alt text-gray"></i>&nbsp;&nbsp;<%= time_ago_in_words(article.created_at) %> ago,</span>
+                    <span>2 Comments</span>
+                  </div>
+                </div>
+                <div class="post-title"><%= link_to article.title, article_path(article) %>
+                  <p><%= truncate(article.description, length: 100) %>
+                  </p>
+
+                  <button class="btn post-btn"><%= link_to "Read More", article_path(article) %>&nbsp;<i class="fas fa-arrow-right"></i></button>
+                  <%= link_to "Edit", edit_article_path(article), class: "btn btn-outline-info" %>
+                  <%= link_to "Delete", article_path(article), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+                  
+                  
+                </div>
+              </div>
+              <hr>
+            <% end %>
+          <%= will_paginate @articles, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+
+        </div>
+        <aside class="sidebar">
+          <div class="category">
+            <h2>Category</h2>
+            <ul class="category-list" >
+              <li class="list-items" data-aos="fade-left" data-aos-delay="100">
+                <a href="#">Software</a>
+                <span>(05)</span>
+              </li>
+              <li class="list-items" data-aos="fade-left" data-aos-delay="200">
+                <a href="#">Technology</a>
+                <span>(02)</span>
+              </li>
+              <li class="list-items" data-aos="fade-left" data-aos-delay="300">
+                <a href="#">Lifestyle</a>
+                <span>(05)</span>
+              </li>
+              <li class="list-items" data-aos="fade-left" data-aos-delay="400">
+                <a href="#">Shopping</a>
+                <span>(05)</span>
+              </li>
+              <li class="list-items" data-aos="fade-left" data-aos-delay="500">
+                <a href="#">Food</a>
+                <span>(05)</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="popular-post">
+            <h2>Popular Post</h2>
+            <% @random.each do |article| %>
+            
+              <div class="post-content" data-aos="flip-up" data-aos-delay="200">
+                <div class="post-image">
+                  <div>
+                    <%= image_tag article.image.url, class:"img", alt:"blog1" %>
+                  </div>
+                  <div class="post-info flex-row">
+                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14,2019</span>
+                    <span>2 Comments</span>
+                  </div>
+                </div>
+                <div class="post-title">
+                  <a><%= link_to article.title, article_path(article) %></a>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          
+          <div class="newsletter" data-aos="fade-up" data-aos-delay="300">
+            <h2>Newsletter</h2>
+            <div class="form-element">
+              <input type="text" class="input-element" placeholder="Email">
+              <button class="btn form-btn">Subscribe</button>
+            </div>
+          </div>
+          <div class="popular-tags">
+            <h2>Popular Tags</h2>
+            <div class="tags flex-row">
+              <span class="tag" data-aos="flip-up" data-aos-delay="100">Software</span>
+              <span class="tag" data-aos="flip-up" data-aos-delay="200">Technology</span>
+              <span class="tag" data-aos="flip-up" data-aos-delay="300">Travel</span>
+              <span class="tag" data-aos="flip-up" data-aos-delay="400">Illustration</span>
+              <span class="tag" data-aos="flip-up" data-aos-delay="500">Design</span>
+              <span class="tag" data-aos="flip-up" data-aos-delay="600">Lifestyle</span>
+              <span class="tag" data-aos="flip-up" data-aos-delay="700">Love</span>
+              <span class="tag" data-aos="flip-up" data-aos-delay="800">Project</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+    <!-- XX Site Content -->
+  </main>
 </div> 
-<p>
-  <%= link_to 'Create new article', new_article_path %>
-</p>
