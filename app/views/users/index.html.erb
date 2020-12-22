@@ -20,7 +20,9 @@
                     </h5>
                     <p><%= pluralize(user.articles.count, "article") %></p>
                     <%= link_to "View profile", user %>
-                    <%= link_to "Edit profile", edit_user_path(user) %>
+                    <% if logged_in? and user == current_user %>
+                      <%= link_to "Edit profile", edit_user_path(user) %>
+                    <% end %>
                   </div>
                   <div>
                     <small>Joined <%= time_ago_in_words(user.created_at) %> ago</small>
