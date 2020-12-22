@@ -25,7 +25,7 @@
             <div class="post-title"><%= link_to @article.title, article_path(@article) %>
               <p><%= truncate(@article.description, length: 10000) %>
               </p>
-              <% if logged_in? && @article.user == current_user %>
+              <% if logged_in? && (@article.user == current_user || current_user.admin?) %>
                 <button class="btn post-btn"><%= link_to "Edit", edit_article_path(@article) %>&nbsp;</button>
                 <button class="btn post-btn"><%= link_to "Delete", article_path(@article),class:"red-btn", method: :delete, data: {confirm: "Are you sure?"} %>&nbsp;</button>
               <% end %>

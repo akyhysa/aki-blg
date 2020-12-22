@@ -36,7 +36,7 @@
             </li>
             <% if logged_in? %>
               <li class="nav-link">
-                <h2>User : [<%= link_to current_user.username, user_path(current_user)%>]</h2>
+                <h2><%= "Admin" if current_user.admin? %> User :[<%= link_to current_user.username, user_path(current_user)%>]</h2>
               </li>
               <li class="nav-link">
                 <a><%= link_to 'Logout', logout_path, method: :delete %></a>
