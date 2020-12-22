@@ -27,14 +27,16 @@
               <a><%= link_to "Author", users_path %></a>
             </li>
             <li class="nav-link">
-              <a><%= link_to "Create new article", new_article_path, class: "dropdown-item" %></a>
+              <% if logged_in? %>
+                <a><%= link_to "Create new article", new_article_path, class: "dropdown-item" %></a>
+              <% end %> 
             </li>
             <li class="nav-link">
               <a><%= link_to "View articles", articles_path %></a>
             </li>
             <% if logged_in? %>
               <li class="nav-link">
-                <h2><%= link_to current_user.username, user_path(current_user)%></h2>
+                <h2>User : [<%= link_to current_user.username, user_path(current_user)%>]</h2>
               </li>
               <li class="nav-link">
                 <a><%= link_to 'Logout', logout_path, method: :delete %></a>
