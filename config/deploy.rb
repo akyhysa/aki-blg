@@ -2,7 +2,7 @@
 lock '3.14.1'
 
 # 自身のアプリ名、ユーザー名、リポジトリ名を記述
-set :application, 'aki_blg'
+set :application, 'aki-blg'
 set :repo_url,  'git@github.com:akyhysa/aki-blg'
 
 # githubのデフォルトのブランチがmasterではなくmainになっている場合のみ以下1行のコメントアウトを外して追記してください。 ※1補足
