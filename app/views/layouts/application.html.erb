@@ -24,26 +24,33 @@
         <div>
           <ul class="nav-items">
             <li class="nav-link">
-              <a><%= link_to "Articles", articles_path %></a>
+              <a><%= link_to "Author", users_path %></a>
             </li>
             <li class="nav-link">
-              <a><%= link_to "Create new article", new_article_path, class: "dropdown-item" %></a>
+              <% if logged_in? %>
+                <a><%= link_to "Create new article", new_article_path, class: "dropdown-item" %></a>
+              <% end %> 
             </li>
             <li class="nav-link">
               <a><%= link_to "View articles", articles_path %></a>
             </li>
-            <li class="nav-link">
-              <a href="#">Pages</a>
-            </li>
-            <li class="nav-link">
-              <a href="#">Contact Us</a>
-            </li>
+            <% if logged_in? %>
+              <li class="nav-link">
+                <h2><%= "Admin" if current_user.admin? %> User :[<%= link_to current_user.username, user_path(current_user)%>]</h2>
+              </li>
+              <li class="nav-link">
+                <a><%= link_to 'Logout', logout_path, method: :delete %></a>
+              </li>
+            <% else %>
+              <li class="nav-link">
+                <a><%= link_to 'Log in', login_path %></a>
+              </li>
+              <li class="nav-link">
+                <a><%= link_to 'Sign up', signup_path %></a>
+              </li>
+            <% end %>
           </ul>
         </div>
-        
-
-
-
         <div class="social text-gray">
           <a href="#"><i class="fab fa-facebook-f"></i></a>
           <a href="#"><i class="fab fa-instagram"></i></a>
@@ -52,10 +59,8 @@
         </div>
       </div>
     </nav>
-
     
   <!-- end navigation -->
-
     <%= render 'layouts/messages' %>
     <%= yield %>
 

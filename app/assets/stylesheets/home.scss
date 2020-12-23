@@ -119,6 +119,7 @@ main .site-content .post-content > .post-image .post-info {
   border-radius: 3rem;
 }
 
+
 main .site-content .post-content > .post-image > div{
   overflow: hidden;
 }
@@ -142,32 +143,15 @@ main .post-content .post-title a{
 }
 
 .site-content .post-content .post-title .post-btn{
-  border-radius: 0;
+  border-radius: 2;
   padding: .7rem 1.5rem;
   background: var(--sky);
+  margin-top: 15px;
 }
 
-// .site-content .pagination{
-//   justify-content: center;
-//   color: var(--text-gray);
-//   margin: 4rem 0;
-// }
 
-// .site-content .pagination a{
-//   padding: .6rem .9rem;
-//   border-radius: 2rem;
-//   margin: 0 .3rem;
-//   font-family: var(--Lexend);
-// }
 
-// .site-content .pagination .pages{
-//   background: var(--text-gray);
-//   color: var(--white);
-// }
 
-/* XX Site Content */
-
-/* Sidebar */
 
 .site-content > .sidebar .category-list{
   font-family: var(--Livvic);
