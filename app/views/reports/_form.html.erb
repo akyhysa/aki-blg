@@ -1,6 +1,6 @@
 <div class="container">
-  <%= render 'shared/errors', obj: @article %>
-  <%= form_with(model: @article, local: true) do |f| %>
+  <%= render 'shared/errors', obj: @report %>
+  <%= form_with(model: @report, local: true) do |f| %>
     <div class="contents row">
       <div class="contact-form">
         <div class="item">
@@ -26,7 +26,7 @@
         </div>
 
         <div class="item no-label">
-          <%= link_to '[ Cancel and return to articles listing ]', articles_path, class:"label" %>
+          <%= link_to '[ Cancel and return to reports listing ]', reports_path, class:"label" %>
         </div>
       </div>
     </div>

@@ -18,7 +18,7 @@
                     <h5>
                       <%= link_to gravatar_for(user, size: 150), user %>
                     </h5>
-                    <p><%= pluralize(user.articles.count, "article") %></p>
+                    <p><%= pluralize(user.reports.count, "report") %></p>
                     <h2><%= link_to "View profile", user %></h2>
                     <% if logged_in? %>
                       <% if user == current_user %>

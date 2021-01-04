@@ -28,11 +28,11 @@
             </li>
             <li class="nav-link">
               <% if logged_in? %>
-                <a><%= link_to "Create new article", new_article_path, class: "dropdown-item" %></a>
+                <a><%= link_to "Create new report", new_report_path, class: "dropdown-item" %></a>
               <% end %> 
             </li>
             <li class="nav-link">
-              <a><%= link_to "View articles", articles_path %></a>
+              <a><%= link_to "View reports", reports_path %></a>
             </li>
             <% if logged_in? %>
               <li class="nav-link">

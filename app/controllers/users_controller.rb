@@ -4,9 +4,9 @@ class UsersController < ApplicationController
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def show
-    # @articles = @user.articles
-    @articles = @user.articles.paginate(page: params[:page], per_page: 5)
-    @random = Article.order("RAND()").limit(6)
+    # @reports = @user.reports
+    @reports = @user.reports.paginate(page: params[:page], per_page: 5)
+    @random = Report.order("RAND()").limit(6)
   end
 
   def index
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Welcome to the AKI Blog #{@user.username}, you have successfully signed up"
-      redirect_to articles_path
+      redirect_to reports_path
     else 
       render 'new'
     end
@@ -43,8 +43,8 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     session[:user_id] = nil if @user == current_user
-    flash[:notice] = "Account and all associated articles successfully deleted"
-    redirect_to articles_path
+    flash[:notice] = "Account and all associated reports successfully deleted"
+    redirect_to reports_path
   end
 
   private
