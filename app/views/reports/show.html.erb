@@ -23,7 +23,7 @@
               </div>
             </div>
             <div class="post-title"><%= link_to @report.title, report_path(@report) %>
-              <p><%= truncate(@report.description, length: 10000) %>
+              <p><%= simple_format(@report.description, length: 100000) %>
               </p>
               <% if logged_in? && (@report.user == current_user || current_user.admin?) %>
                 <button class="btn post-btn"><%= link_to "Edit", edit_report_path(@report) %>&nbsp;</button>
