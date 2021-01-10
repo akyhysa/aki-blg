@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   require "open-uri"
     def home
       # redirect_to reports_path if logged_in?
-      @reports = Report.paginate(page: params[:page], per_page: 5)
+      @reports = Report.paginate(page: params[:page], per_page: 5).order("created_at DESC")
       @random = Report.order("RAND()").limit(6)
 
       api = Rails.application.credentials.news_api:a16a9bc6a6df47fdb27cabf988017ecd

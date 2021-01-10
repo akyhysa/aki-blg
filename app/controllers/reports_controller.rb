@@ -5,7 +5,7 @@ class ReportsController < ApplicationController
   
   
   def show
-    @reports = Report.paginate(page: params[:page], per_page: 5).order("created_at DESC")
+    @reports = Report.paginate(page: params[:page], per_page: 5)
     @random = Report.order("RAND()").limit(6)
   end
 
