@@ -26,36 +26,36 @@
     <section class="container">
       <div class="site-content">
         <div class="posts">
-          <%# <%= will_paginate @reports, previous_label: '<', next_label: '>', inner_window: 1 %> 
-          <% @reports.each do |report| %>
-            <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
-              <div class="post-image">
-                <div>
-                  <%= image_tag report.image.url, class:"img", alt:"blog1" %>
+          <%= will_paginate @reports, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+            <% @reports.each do |report| %>
+              <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
+                <div class="post-image">
+                  <div>
+                    <%= image_tag report.image.url, class:"img", alt:"blog1" %>
+                  </div>
+                  <div class="post-info flex-row">
+                    <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;
+                      <% if report.user %>
+                        by <%= link_to report.user.username, user_path(report.user) %>
+                      <% end %>
+                    </span>
+                    <span><i class="fas fa-calender-alt text-gray"></i>&nbsp;&nbsp;<%= time_ago_in_words(report.created_at) %> ago,</span>
+                    <span>2 Comments</span>
+                  </div>
                 </div>
-                <div class="post-info flex-row">
-                  <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;
-                    <% if report.user %>
-                      by <%= link_to report.user.username, user_path(report.user) %>
-                    <% end %>
-                  </span>
-                  <span><i class="fas fa-calender-alt text-gray"></i>&nbsp;&nbsp;<%= time_ago_in_words(report.created_at) %> ago,</span>
-                  <span>2 Comments</span>
+                <div class="post-title"><%= link_to report.title, report_path(report) %>
+                  <p><%= truncate(report.description, length: 100) %>
+                  </p>
+                  <button class="btn post-btn"><%= link_to "Read More", report_path(report) %>&nbsp;<i class="fas fa-arrow-right"></i></button>
+                  <% if logged_in? && (report.user == current_user || current_user.admin?) %>
+                    <%= link_to "Edit", edit_report_path(report), class: "btn btn-outline-info" %>
+                    <%= link_to "Delete", report_path(report), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+                  <% end %>
                 </div>
               </div>
-              <div class="post-title"><%= link_to report.title, report_path(report) %>
-                <p><%= truncate(report.description, length: 100) %>
-                </p>
-                <button class="btn post-btn"><%= link_to "Read More", report_path(report) %>&nbsp;<i class="fas fa-arrow-right"></i></button>
-                <% if logged_in? && (report.user == current_user || current_user.admin?) %>
-                  <%= link_to "Edit", edit_report_path(report), class: "btn btn-outline-info" %>
-                  <%= link_to "Delete", report_path(report), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
-                <% end %>
-              </div>
-            </div>
-            
-          <% end %>
-        <%= will_paginate @reports, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+              
+            <% end %>
+          <%= will_paginate @reports, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
 
         </div>
         <aside class="sidebar">
