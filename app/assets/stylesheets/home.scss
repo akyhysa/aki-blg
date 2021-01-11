@@ -152,9 +152,6 @@ main .post-content .post-title a{
 }
 
 
-
-
-
 .site-content > .sidebar .category-list{
   font-family: var(--Livvic);
 }
@@ -561,3 +558,29 @@ footer.footer .move-up span:hover{
 }
 
 /* XX Viewport less then equal to 520px */
+
+.sample03 {
+  margin : 0 auto 40px;
+  width : 100%;
+  height:2.0em;
+  font-size : 24px;
+  text-align : center;
+  overflow : hidden;
+  ul{
+    display : inline-block;
+    white-space : nowrap;
+    line-height : 2.0em;
+    // animation : scrollSample03 8s linear infinite;
+    animation-name: scrollSample03;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    li{
+      margin:0;
+    }
+  }
+}
+@keyframes scrollSample03{
+0% { transform: translateY(2.0em)}
+100% { transform: translateY(-50.5em)}
+}

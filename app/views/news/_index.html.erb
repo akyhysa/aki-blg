@@ -22,5 +22,13 @@
       </div>
     </div>
   </section>
+  <div class="sample03">
+    <% @articles["articles"].each do |article| %>
+      <ul>
+        <li><%= link_to article["title"] %></li>
+      </ul>
+    <% end %>
+  </div>
+
 </main>
 
