@@ -95,7 +95,7 @@
                     <%= image_tag report.image.url, class:"img", alt:"blog1" %>
                   </div>
                   <div class="post-info flex-row">
-                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14,2019</span>
+                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;<%= report.created_at.strftime('%Y-%m-%d') %></span>
                     <span>2 Comments</span>
                   </div>
                 </div>
